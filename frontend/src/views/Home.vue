@@ -1,17 +1,12 @@
-<template>
+<template xmlns:v-if="http://www.w3.org/1999/html">
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <div>
-    <table class="table table-striped mt-4">
-      <tbody>
-        <div v-for="article in articles" :key="article.id">
-          <li>Title: {{ article.title }}</li>
-          <li>Author: {{ article.author.username }}</li>
-          <li>Content: <br>{{ article.content }}</li>
-          <br>
-        </div>
-      </tbody>
-    </table>
+    <div v-for="article in articles" :key="article.id">
+        {{article.title}}<br>
+        {{article.author.username}}<br>
+        {{article.content}}<br>
+    </div>
   </div>
   </div>
 </template>
@@ -37,6 +32,7 @@ export default {
           query: `
           {
             articles{
+              id
               title
               author{
                 username
