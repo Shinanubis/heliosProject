@@ -16,19 +16,19 @@ class ArticleType(DjangoObjectType):
 
 
 class CategoryType(DjangoObjectType):
-    """Defines a graphql type for our article."""
+    """Defines a graphql type for our category."""
     class Meta:
         model = Category
 
 
 class CommentType(DjangoObjectType):
-    """Defines a graphql type for our article."""
+    """Defines a graphql type for our comment."""
     class Meta:
         model = Comment
 
 
 class UserType(DjangoObjectType):
-    """Defines a graphql type for our article."""
+    """Defines a graphql type for our user."""
     class Meta:
         model = User
 
@@ -124,7 +124,34 @@ class CreateComment(Mutation):
             related_paper_title=comment.related_paper
         )
 
+class CreateArticle(Mutation):
+    id = Int()
+    title = String()
+    user_username = String()
+    content = String()
+    comment_id = Int()
+    category_name = String()
+
+    class Arguments:
+        id = Int()
+        title = String()
+        user_username = Int()
+        content = String()
+        category_name = Int()
+
+
+    def mutate(root, info, title,user_username, content, category_name):
+        article = Article(title=title, author=User.objects.get(pk=user_username), content=content, category=Category.objects.get(pk=category_name))
+        article.save()
+
+        return CreateArticle(
+            id=article.id,
+            user_username=article.author,
+            content=article.content,
+            category_name=article.category
+        )
 
 class Mutation(ObjectType):
-    create_category = CreateCategory.Field()
-    create_comment = CreateComment.Field()
+    create_category = CreateCategory.Field(),
+    create_comment = CreateComment.Field(),
+    create_article = CreateArticle.Field()
