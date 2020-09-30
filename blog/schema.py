@@ -1,7 +1,8 @@
 # blog/schema.py
-
 import graphene
+from graphene import ObjectType, Mutation, String, Int
 from graphene_django import DjangoObjectType
+
 from blog.models import Article
 from blog.models import Category
 from blog.models import Comment
@@ -13,15 +14,18 @@ class ArticleType(DjangoObjectType):
     class Meta:
         model = Article
 
+
 class CategoryType(DjangoObjectType):
     """Defines a graphql type for our article."""
     class Meta:
         model = Category
 
+
 class CommentType(DjangoObjectType):
     """Defines a graphql type for our article."""
     class Meta:
         model = Comment
+
 
 class UserType(DjangoObjectType):
     """Defines a graphql type for our article."""
@@ -57,6 +61,7 @@ class Query(graphene.ObjectType):
         if id is not None:
             return Article.objects.get(id=id)
 
+
     def resolve_category(self, info, **kwargs):
         name = kwargs.get("name")
         if name is not None:
@@ -72,3 +77,54 @@ class Query(graphene.ObjectType):
         if username is not None:
             return User.objects.get(username=username)
 
+
+
+
+class CreateCategory(Mutation):
+    id = Int()
+    name = String()
+
+    class Arguments:
+        id = Int()
+        name = String()
+
+
+    def mutate(root, info, name, ):
+        category = Category(name=name)
+        category.save()
+
+        return CreateCategory(
+            id=category.id,
+            name=category.name
+        )
+
+
+
+class CreateComment(Mutation):
+    id = Int()
+    user_username = String()
+    content = String()
+    related_paper_title = String()
+
+    class Arguments:
+        id = Int()
+        user_username = Int()
+        content = String()
+        related_paper_title = Int()
+
+
+    def mutate(root, info, user_username, content, related_paper_title):
+        comment = Comment(author=User.objects.get(pk=user_username), content=content, related_paper=Article.objects.get(pk=related_paper_title))
+        comment.save()
+
+        return CreateComment(
+            id=comment.id,
+            user_username=comment.author,
+            content=comment.content,
+            related_paper_title=comment.related_paper
+        )
+
+
+class Mutation(ObjectType):
+    create_category = CreateCategory.Field()
+    create_comment = CreateComment.Field()
