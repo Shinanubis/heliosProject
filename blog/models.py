@@ -11,7 +11,7 @@ class Article(models.Model):
     title = models.CharField(max_length=75)
     slug = AutoSlugField(populate_from='title')
     content = models.TextField()
-    comments = models.ForeignKey('Comment', on_delete=models.CASCADE)
+    comments = models.ForeignKey('Comment', on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
@@ -36,7 +36,7 @@ class Category(models.Model):
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=200)
-    related_paper = models.ForeignKey(Article, on_delete=models.CASCADE)
+    related_paper = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(editable=False)
 
     def __str__(self):
