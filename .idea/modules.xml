@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../graphblog/.idea/graphblog.iml" filepath="$PROJECT_DIR$/../graphblog/.idea/graphblog.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/heliosProject.iml" filepath="$PROJECT_DIR$/.idea/heliosProject.iml" />
     </modules>
   </component>
