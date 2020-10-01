@@ -1,12 +1,11 @@
 # blog/admin.py
 from django.contrib import admin
-from blog.models import Article
-from blog.models import Category
-from blog.models import Comment
+from blog.models import Article, Category, Comment
 
-@admin.register(Article)
-@admin.register(Category)
-@admin.register(Comment)
+
+@admin.register(Article, Category, Comment)
+
+
 class ArticleAdmin(admin.ModelAdmin):
-    """Admin for the blog post."""
+    #Admin for the blog post.
     pass

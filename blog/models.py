@@ -1,16 +1,19 @@
 # blog/models.py
-from django.db import models
 from django.utils import timezone
 from autoslug import AutoSlugField
 from django import forms
 from django.contrib.auth.models import User
+
+from django.db import models
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Article(models.Model):
     """A blog article model."""
     title = models.CharField(max_length=75)
     slug = AutoSlugField(populate_from='title')
-    content = models.TextField()
+    content = RichTextUploadingField(max_length=2000)
     comments = models.ForeignKey('Comment', on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
