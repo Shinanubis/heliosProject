@@ -134,10 +134,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT ='media/'
+MEDIA_ROOT = 'media/'
 
+# Config path for ckeditor media
 CKEDITOR_UPLOAD_PATH = "uploads/"
-DJANGO_WYSIWYG_FLAVOR = "ckeditor"
 
 # Graphene conf
 GRAPHENE = {
@@ -153,4 +153,3 @@ WEBPACK_LOADER = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
-
