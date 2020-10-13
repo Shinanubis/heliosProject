@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Moroccan Days",
+    "author": "John L",
+    "category": "Vegan",
+    "hero": "vegan.jpg"
+  },
+  {
+    "title": "Swedish Fishing",
+    "author": "Rachel L",
+    "category": "Fish",
+    "hero": "fish.jpg"
+  },
+  {
+    "title": "Paris in Spring",
+    "author": "John L",
+    "category": "Food",
+    "hero": "foodshopparis.jpg"
+  },
+  {
+    "title": "Art of delicatessen",
+    "author": "Sarha Connor",
+    "category": "Delicatessen",
+    "hero": "delicatessen.jpg"
+  }
+
+]
