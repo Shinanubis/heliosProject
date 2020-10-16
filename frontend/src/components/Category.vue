@@ -6,7 +6,8 @@
       </v-col>
 
       <category-card
-        v-for="(article, i) in paginatedArticles"
+        v-for="(article, i) in orderBy(paginatedArticles,'title')"
+        v-if="article.category.toLowerCase()===locate"
         :key="article.title"
         :size="layout[i]"
         :value="article"
@@ -52,18 +53,21 @@
 </template>
 
 <script>
+  import Vue2Filters from 'vue2-filters'
   // Utilities
   import {
     mapState,
   } from 'vuex'
   export default {
-    name: 'Fish',
+    name: 'Category',
+    mixins: [Vue2Filters.mixin],
     components: {
       CategoryCard: () => import('@/components/CategoryCard'),
     },
     data: () => ({
       layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
       page: 1,
+      locate: window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
     }),
     computed: {
       ...mapState(['articles']),

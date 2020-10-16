@@ -1,14 +1,13 @@
 <template>
   <v-col
     cols="12"
-    v-if="value.category==='Food'"
-    :md="4"
+    :md="6"
   >
     <base-card
       :height="value.prominent ? 450 : 350"
       color="grey lighten-1"
       dark
-      href="#!"
+      :href="value.title"
     >
       <v-img
         :src="require(`@/assets/articles/${value.hero}`)"
@@ -59,7 +58,7 @@
 
 <script>
   export default {
-    name: 'FeedCard',
+    name: 'CategoryCard',
 
     props: {
       size: {

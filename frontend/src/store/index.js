@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -29,7 +28,6 @@ export default new Vuex.Store({
         ) continue
 
         const text = article.category
-
         categories.push({
           text,
           href: text.toLowerCase(),

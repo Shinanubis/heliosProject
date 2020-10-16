@@ -6,7 +6,7 @@
       </v-col>
 
       <feed-card
-        v-for="(article, i) in paginatedArticles"
+        v-for="(article, i) in orderBy(paginatedArticles,'title')"
         :key="article.title"
         :size="layout[i]"
         :value="article"
@@ -56,10 +56,11 @@
   import {
     mapState,
   } from 'vuex'
+  import Vue2Filters from 'vue2-filters'
 
   export default {
     name: 'Feed',
-
+    mixins: [Vue2Filters.mixin],
     components: {
       FeedCard: () => import('@/components/FeedCard'),
     },

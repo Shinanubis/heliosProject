@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-import Fish from '../views/Fish.vue'
+import Food from '../views/Food.vue'
 
 Vue.use(Router)
 
@@ -15,9 +15,10 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/fish',
-      name: 'Fish',
-      component: Fish,
+      path: '/:id',
+      name: 'Food',
+      component: Food,
     },
+
   ],
 })
