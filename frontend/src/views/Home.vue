@@ -7,8 +7,6 @@
     <about />
 
     <subscribe />
-
-    <social />
   </div>
 </template>
 

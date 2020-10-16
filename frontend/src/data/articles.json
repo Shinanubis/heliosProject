@@ -2,11 +2,17 @@
   {
     "title": "Moroccan Days",
     "author": "John L",
-    "category": "Vegan",
+    "category": "Bored",
     "hero": "vegan.jpg"
   },
   {
     "title": "Swedish Fishing",
+    "author": "Rachel L",
+    "category": "Fish",
+    "hero": "fish.jpg"
+  },
+  {
+    "title": "Swedish Fishing Fresh",
     "author": "Rachel L",
     "category": "Fish",
     "hero": "fish.jpg"
@@ -18,7 +24,31 @@
     "hero": "foodshopparis.jpg"
   },
   {
-    "title": "Art of delicatessen",
+    "title": "Paris on Spring",
+    "author": "John L",
+    "category": "Food",
+    "hero": "foodshopparis.jpg"
+  },
+  {
+    "title": "Spring",
+    "author": "John L",
+    "category": "Food",
+    "hero": "foodshopparis.jpg"
+  },
+  {
+    "title": "Spring",
+    "author": "John L",
+    "category": "Food",
+    "hero": "foodshopparis.jpg"
+  },
+  {
+    "title": "Spring",
+    "author": "John L",
+    "category": "Food",
+    "hero": "foodshopparis.jpg"
+  },
+  {
+    "title": "Art delicatessen",
     "author": "Sarha Connor",
     "category": "Delicatessen",
     "hero": "delicatessen.jpg"

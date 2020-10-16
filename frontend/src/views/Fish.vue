@@ -5,7 +5,7 @@
         <slot />
       </v-col>
 
-      <feed-card
+      <category-card
         v-for="(article, i) in paginatedArticles"
         :key="article.title"
         :size="layout[i]"
@@ -16,7 +16,7 @@
     <v-row align="center">
       <v-col cols="3">
         <base-btn
-          v-if="pages > 1"
+          v-if="page !== 1"
           class="ml-0"
           square
           title="Previous page"
@@ -56,19 +56,15 @@
   import {
     mapState,
   } from 'vuex'
-
   export default {
-    name: 'Feed',
-
+    name: 'Fish',
     components: {
-      FeedCard: () => import('@/components/FeedCard'),
+      CategoryCard: () => import('@/components/CategoryCard'),
     },
-
     data: () => ({
       layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
       page: 1,
     }),
-
     computed: {
       ...mapState(['articles']),
       pages () {
@@ -77,11 +73,9 @@
       paginatedArticles () {
         const start = (this.page - 1) * 11
         const stop = this.page * 11
-
         return this.articles.slice(start, stop)
       },
     },
-
     watch: {
       page () {
         window.scrollTo(0, 0)

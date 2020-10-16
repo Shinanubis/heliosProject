@@ -7,7 +7,6 @@
       class="hidden-md-and-up"
       @click="toggleDrawer"
     />
-
     <v-container class="mx-auto py-0">
       <v-row align="center">
         <v-img
@@ -19,7 +18,6 @@
           max-width="48"
           @click="$vuetify.goTo(0)"
         />
-
         <v-btn
           v-for="(link, i) in links"
           :key="i"

@@ -1,7 +1,8 @@
 <template>
   <v-col
     cols="12"
-    :md="size === 2 ? 6 : size === 3 ? 4 : undefined"
+    v-if="value.category==='Food'"
+    :md="4"
   >
     <base-card
       :height="value.prominent ? 450 : 350"
